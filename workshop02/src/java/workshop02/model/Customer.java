@@ -30,7 +30,7 @@ public class Customer {
             referencedColumnName = "discount_code")
     private DiscountCode discountCode;
     
-    @OneToMany(mappedBy = "purchaseorder")
+    @OneToMany(mappedBy = "customer")
     private List<PurchaseOrder> purchaseOrders;
 
     public Integer getCustomerID() {

@@ -131,14 +131,17 @@ public class PurchaseOrder {
     public void setGst(Long gst) {
         this.gst = gst;
     }
-    
+
     public JsonObject toJson() {
+    
         JsonObjectBuilder builder = Json.createObjectBuilder();
-        builder.add("orderNum", ordernum);
-        builder.add();
-                
-                }
+        builder.add("orderNum", orderNum)
+                .add("productID", productId)
+                .add("shippingCost", shippingCost)
+                .add("shippingDate", shippingDate.toString())
+                .add("freightCompany", freightCompany);
+        return (builder.build());
+    
     
     }
-    
-}
+    } 

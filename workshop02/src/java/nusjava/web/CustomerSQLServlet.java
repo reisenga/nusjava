@@ -1,5 +1,5 @@
 
-package nushava.web;
+package nusjava.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.annotation.Resource;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,8 @@ import javax.sql.DataSource;
 import javax.ws.rs.core.MediaType;
 
 
-public class CustSql extends HttpServlet{
+@WebServlet(urlPatterns = {"/customer-sql"})
+public class CustomerSQLServlet extends HttpServlet{
 
     
     @Resource(lookup = "jdbc/sample")
@@ -53,7 +55,15 @@ public class CustSql extends HttpServlet{
                 }
                 
             }
-            
+            else {
+                //customer id is not found
+                resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                resp.setContentType(MediaType.TEXT_PLAIN);
+                try (PrintWriter pw = resp.getWriter()) {
+                    pw.printf("Customer with %d does not exists", custID);
+                }
+            }
+          
             
             
         } catch (SQLException exception) {
