@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Customer {
     @Id @Column (name = "customer_id")
-    private Integer customerID;
+    private Integer customerId;
     private String name;
     private String addressline1;
     private String addressline2;
@@ -33,12 +33,12 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<PurchaseOrder> purchaseOrders;
 
-    public Integer getCustomerID() {
-        return customerID;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomerID(Integer customerID) {
-        this.customerID = customerID;
+    public void setCustomerID(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public String getName() {

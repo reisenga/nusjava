@@ -22,11 +22,12 @@ import javax.persistence.Transient;
 @Table(name="purchase_order")
 @NamedQueries({
     @NamedQuery(name = "PurchaseOrder.findByCustomerId", 
-            query = "select po from PurchaseOrder po join po.customer c where c.customerId = :custID"
+            query = "select po from PurchaseOrder po join po.customer c where c.customerId = :custId"
     ),
     @NamedQuery(
     name = "PurchaseOrder.findByOrderNum",
-    query = "select po from PurchaseOrder po where po.orderNum = :orderNum")
+    query = "select po from PurchaseOrder po where po.orderNum = :orderNum"
+    )
         
 })
 public class PurchaseOrder {
@@ -136,7 +137,7 @@ public class PurchaseOrder {
     
         JsonObjectBuilder builder = Json.createObjectBuilder();
         builder.add("orderNum", orderNum)
-                .add("productID", productId)
+                .add("productId", productId)
                 .add("shippingCost", shippingCost)
                 .add("shippingDate", shippingDate.toString())
                 .add("freightCompany", freightCompany);

@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 import javax.ws.rs.core.MediaType;
 
 
-@WebServlet(urlPatterns = {"/customer-sql"})
+@WebServlet(urlPatterns = { "/customer-sql" })
 public class CustomerSQLServlet extends HttpServlet{
 
     
