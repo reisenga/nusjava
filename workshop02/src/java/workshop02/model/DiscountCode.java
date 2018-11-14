@@ -46,6 +46,11 @@ public class DiscountCode {
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
     }
+
+    @Override
+    public String toString() {
+        return "DiscountCode{" + "discountCode=" + discountCode + ", rate=" + rate + ", customers=" + customers + '}';
+    }
     
 }
     
